@@ -13,3 +13,32 @@ function whyImHere(){
 }
 
 whyImHere();
+
+function display(msg){
+    let x = `Y'all come back now!`;
+    console.log(msg + "! " + x);
+}
+
+display("Howdy");
+
+function mathTest(x,y,z){
+    Math.PI
+}
+
+let son = "Sasha's Son";
+
+function school(student){
+    //student does homework
+    //student eats lunch
+    if (student == misbehaves) {
+        //student gets detention
+        console.log("Detention");
+    }
+    else if (student == best) {
+        //student gets award
+        console.log("Student of the Month");
+    }
+}
+
+school(son);
+
