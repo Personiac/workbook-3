@@ -1,14 +1,13 @@
 "use strict";
+
 const p1 = { name: "Jon", address: "506 Sunnyland Ave", city: "Pittsburgh", state: "PA", zip: "15227" };
 const p2 = { name: "Jimmy", address: "123 Street Road", city: "My City", state: "A State", zip: "42069" };
 
 function displayMailingLabel(name, address, city, state, zip) {
   let addressLabel = `
-    Name: ${name}
-    Address: ${address}
-    City: ${city}
-    State: ${state}
-    ZIP: ${zip}`;
+    ${name}
+    ${address}
+    ${city}, ${state}, ${zip}`;
   console.log(addressLabel);
 }
 
@@ -21,17 +20,17 @@ function displayReceipt(totalDue, amountPaid) {
   console.log(`Total Due: ${totalDue}`);
   console.log(`Amount Paid: ${amountPaid}`);
   let changeDue = totalDue - amountPaid;
-  switch (changeDue) {
+  switch (true) {
     case changeDue < 0:
-    changeDue *= -1;
-    console.log(`Change Due: $${changeDue}`);
-    break;
+      changeDue *= -1;
+      console.log(`Change Due: $${changeDue}`);
+      break;
     case changeDue > 0:
-    console.log(`Amount Owe: $${changeDue}`);
-    break;
+      console.log(`Amount Owe: $${changeDue}`);
+      break;
     case changeDue == 0:
-    console.log(`Perfectly Paid!`);
-    break;
+      console.log(`Perfectly Paid!`);
+      break;
   }
 }
 
