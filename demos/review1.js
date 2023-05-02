@@ -1,9 +1,10 @@
 "use strict"
-function greeting(name) {
-    return `Hello ${name}`;
+function greeting(first, last) {
+    return `Hello ${first} ${last}`;
 }
 
-let firstName = "Will"
-let message = greeting(firstName);
+let firstName = "Will";
+let lastName = "Roberson";
+let message = greeting(firstName, lastName);
 
 console.log(message);
