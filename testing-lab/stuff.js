@@ -10,27 +10,27 @@ function parseAndDisplayName(name) {
   let spaceAfter2 = spaceChar2 + 1;
   let middleName = lastHalf.substring(0, spaceChar2);
   let lastName = lastHalf.substring(spaceAfter2);
-  let space1 = spaceChar-spaceChar+1;
-  let space2 = spaceChar2-spaceChar2+1;
-  let spaceTotal = space1+space2;
 
-  console.log("The space is at position " + name.indexOf(" "));
-  if (spaceTotal < 1) {
+  let space1 = spaceChar - spaceChar + 1;
+  let space2 = spaceChar2 - spaceChar2 + 1;
+  let spaceTotal = space1 + space2;
+
+  //console.log("The space is at position " + name.indexOf(" "));
+  if (spaceChar < 0) {
       console.log(`Name: ${name}
-        Only name: ${firstName}`);
+        Only name: ${name}`);
     } else {
-        switch (spaceTotal) {
-            case 1:
+        switch (spaceChar2 < 0) {
+            case true:
               console.log(`Name: ${name}
-                    First name: ${firstName}
-                    Last name: ${lastName}`);
+            First name: ${firstName}
+            Last name: ${lastName}`);
               break;
-            case 2:
+            case false:
               console.log(`Name: ${name}
             First name: ${firstName}
             Middle Name: ${middleName}
-            Last name: ${lastName}
-            ${spaceTotal}`);
+            Last name: ${lastName}`);
             break;
         }
     }
@@ -40,6 +40,6 @@ function parseAndDisplayName(name) {
 //   console.log(`The second space is located at ${spaceChar2}`);
 
 
-parseAndDisplayName("Cher ");
+parseAndDisplayName("Cher");
 parseAndDisplayName("Brenda Kaye");
 parseAndDisplayName("Dana Lynn Wyatt");

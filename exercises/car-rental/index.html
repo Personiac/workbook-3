@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Rental</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <label for="pickupDate">Pickup Date</label>
+      <input type="date" name="pickupDate" id="pickupDate" />
+
+      <label for="numOfDays">Number of Days</label>
+      <input type="number" name="numOfDays" id="numOfDays" />
+
+      <section id="options">
+        <label for="options">Options</label>
+
+        <input type="checkbox" name="toll" id="toll" />
+        <label for="toll">Electronic Toll Tag ($3.95/day)</label>
+        <br />
+
+        <input type="checkbox" name="gps" id="gps" />
+        <label for="gps">GPS ($2.95/day)</label>
+        <br />
+
+        <input type="checkbox" name="roadAssist" id="roadAssist" />
+        <label for="roadAssist">Roadside Assistance ($2.95/day)</label>
+      </section>
+
+      <section id="ageCheckSection">
+        <label for="under25">Under 25</label>
+        <input type="radio" name="ageCheck" id="noBtn" value="1.00" />
+        <label for="noBtn">No</label>
+        <input type="radio" name="ageCheck" id="yesBtn" value="1.30" />
+        <label for="yesBtn">Yes</label>
+      </section>
+      <button id="estimateCost" onclick="estimateCost();">Estimate Total Cost</button>
+      <p id="total"></p>
+    </div>
+    <script>
+      "use strict";
+
+      function estimateCost() {
+        //let selectedOption = document.querySelector("input[name='policy']:checked");
+        let selectedAgeCheck = document.querySelector("input[name='ageCheck']:checked");
+        let totalElement = document.getElementById("total");
+        let numOfDays = parseFloat(document.getElementById("numOfDays").value)
+        let baseRental = 29.99;
+        let ageSurcharge = baseRental * parseFloat(selectedAgeCheck.value);
+        let optionsCost = 0;
+        let totalCost = 0;
+
+        if (document.getElementById("toll").checked) {
+          totalCost += 3.95;
+        }
+
+        if (document.getElementById("gps").checked) {
+          totalCost += 2.95;
+        }
+
+        if (document.getElementById("roadAssist").checked) {
+          totalCost += 2.95;
+        }
+
+        if (selectedAgeCheck) {
+          totalCost += ageSurcharge;
+          totalCost *= numOfDays;
+        } else {
+          totalCost *= numOfDays;
+        }
+
+        console.log(totalCost);
+
+        totalElement.innerText = `
+            Car Rental: $${baseRental}
+            Options: $${optionsCost}
+            Under 25 Surcharge: $${ageSurcharge.toFixed(2)}
+            Total Cost: $${totalCost}`;
+      }
+    </script>
+  </body>
+</html>
